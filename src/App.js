@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import * as d3 from 'd3';
+import './App.scss';
+import data from './data.json';
+import StaticTree from './StaticTree';
+import EditForm from './EditForm';
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      data:d3.hierarchy(data)
+    }
+  }
+  
+
+  componentDidMount=()=>{
+    
+
+  }
   render() {
     return (
+      
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <EditForm />
+        <StaticTree  data={this.state.data} />
       </div>
     );
   }

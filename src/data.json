@@ -1,0 +1,125 @@
+{
+  
+    "name":"app",
+    "state":{
+
+        },
+    "props":{
+
+    },
+    "children":[
+        {
+            "name":"MainVideo",
+            "state":{
+    
+                },
+            "props":{
+    
+                },
+            "children":[
+                {
+        
+                    "name":"VideoPlayer",
+                    "state":{
+            
+                        },
+                    "props":{
+            
+                    },
+                    "children":[]
+                },
+                {
+        
+                    "name":"VideoContent",
+                    "state":{
+            
+                        },
+                    "props":{
+            
+                    },
+                    "children":[]
+                },
+                {
+        
+                    "name":"Comments",
+                    "state":{
+            
+                        },
+                    "props":{
+            
+                    },
+                    "children":[
+                        {
+                        "name":"Comment",
+                        "state":{
+
+                            },
+                        "props":{
+
+                            }
+                        },
+                        {
+                            "name":"Comment",
+                            "state":{
+
+                                },
+                            "props":{
+
+                                }
+                        },
+                        {
+            
+                            "name":"Comment",
+                            "state":{
+
+                                },
+                            "props":{
+
+                                }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+
+            "name":"VideoList",
+            "state":{
+    
+                },
+            "props":{
+    
+            },
+            "children":[
+                {
+                    "name":"SingleVideo",
+                    "state":{
+
+                        },
+                    "props":{
+
+                    }
+                },
+                {
+        
+                    "name":"SingleVideo",
+                    "state":{
+
+                        },
+                    "props":{
+
+                    }
+                },
+                {
+                    "name":"SingleVideo",
+                    "state":{
+
+                        },
+                    "props":{
+
+                    }
+                }
+            ]
+        }
+    ]    
+}
