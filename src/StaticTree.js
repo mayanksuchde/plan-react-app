@@ -14,9 +14,7 @@ export default class StaticTree extends Component {
 
     openPopup(){
         console.log('whoasodaosdoasd')
-        this.setState({
-            open:true
-        })
+      
     }
    
 
@@ -35,6 +33,7 @@ export default class StaticTree extends Component {
                 .x(d=>d.x)
                 .y(d=>d.y));
             
+            
     }
   
        
@@ -52,7 +51,7 @@ export default class StaticTree extends Component {
             <g className='nodes' transform="translate(0,15)">{
                 myTree.descendants().map((d,i)=>
                     <>
-                        <Node d={d} key={i} onClick={this.openPopup} />
+                        <Node d={d} key={i} onClick={this.openPopup} getNode={this.props.getNode} />
                     </>
                 )}
             </g>

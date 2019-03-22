@@ -2,7 +2,8 @@
   
     "name":"app",
     "state":{
-
+        "currentVideo":"Object",
+        "videoList":"Array"
         },
     "props":{
 
@@ -14,17 +15,17 @@
     
                 },
             "props":{
-    
+                "currentVideo":"Object"
                 },
             "children":[
                 {
         
                     "name":"VideoPlayer",
                     "state":{
-            
+                        
                         },
                     "props":{
-            
+                        "currentVideo":"Object"
                     },
                     "children":[]
                 },
@@ -88,7 +89,7 @@
     
                 },
             "props":{
-    
+                "videoList":"Array"
             },
             "children":[
                 {
