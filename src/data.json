@@ -1,5 +1,5 @@
 {
-  
+    "id":"4562",
     "name":"app",
     "state":{
         "currentVideo":"Object",
@@ -10,6 +10,7 @@
     },
     "children":[
         {
+            "id":"45621",
             "name":"MainVideo",
             "state":{
     
@@ -19,7 +20,7 @@
                 },
             "children":[
                 {
-        
+                    "id":"456211",
                     "name":"VideoPlayer",
                     "state":{
                         
@@ -30,7 +31,7 @@
                     "children":[]
                 },
                 {
-        
+                    "id":"456212",
                     "name":"VideoContent",
                     "state":{
             
@@ -41,7 +42,7 @@
                     "children":[]
                 },
                 {
-        
+                    "id":"456213",
                     "name":"Comments",
                     "state":{
             
@@ -51,39 +52,44 @@
                     },
                     "children":[
                         {
+                        "id":"4562131",
                         "name":"Comment",
                         "state":{
 
                             },
                         "props":{
 
-                            }
+                            },
+                        "children":[]
                         },
                         {
+                            "id":"4562132",
                             "name":"Comment",
                             "state":{
 
                                 },
                             "props":{
 
-                                }
+                                },
+                            "children":[]
                         },
                         {
-            
+                            "id":"4562133",
                             "name":"Comment",
                             "state":{
 
                                 },
                             "props":{
 
-                                }
+                                },
+                            "children":[]
                         }
                     ]
                 }
             ]
         },
         {
-
+            "id":"45622",
             "name":"VideoList",
             "state":{
     
@@ -93,32 +99,37 @@
             },
             "children":[
                 {
+                    "id":"456221",
                     "name":"SingleVideo",
                     "state":{
 
                         },
                     "props":{
 
-                    }
+                    },
+                    "children":[]
                 },
                 {
-        
+                    "id":"456222",
                     "name":"SingleVideo",
                     "state":{
 
                         },
                     "props":{
 
-                    }
+                    },
+                    "children":[]
                 },
                 {
+                    "id":"456223",
                     "name":"SingleVideo",
                     "state":{
 
                         },
                     "props":{
 
-                    }
+                    },
+                    "children":[]
                 }
             ]
         }

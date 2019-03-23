@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Children from './Children'
+import Children from './Children';
+import uuid from 'uuid';
 
 export default class EditForm extends Component {
   constructor(props){
@@ -9,30 +10,32 @@ export default class EditForm extends Component {
     }
     this.formref= React.createRef();
   }
-  handleChange=(e)=>{
-    
+ 
+  generateState=(data)=>{
+    let arr=[]
+    for(let i in data.state){
+      arr.push(<li key={uuid()}><span>{i}</span>:<span>{data.state[i]}</span></li>)
+    }
+    return arr
   }
   componentDidMount=()=>{
     
   }
 
   componentDidUpdate=()=>{
-    // if(this.props.node.name){
-    //   this.setState({
-    //     currentNode:this.props.node
-    //   })
-     
-    // }
+    
   }
   render() {
-    let {node}= this.props;
+    let {node,nameEdit,handleNameChange,handleNameSubmit}= this.props;
     
     return (
       <div className='edit-form'>
-        <form ref={this.formref}>
-            <label> Component name:
-                <input type='text' name="name" value={node.name||""} onChange={this.handleChange} />
-            </label>
+        <form onSubmit={handleNameSubmit}>
+          <label htmlFor="name"> Component name:
+              <input type='text' name="name" value={nameEdit} onChange={handleNameChange} />
+          </label>
+          <input type="Submit" value="Save" />
+        </form>
             <div className="state">
               <h4>State</h4>
               <div className="state__headers">
@@ -40,7 +43,9 @@ export default class EditForm extends Component {
                 <h5>Data Type:</h5>
               </div>
               <div className="state__list">
-              
+                <ul>
+                  {this.generateState(node)}
+                </ul>
               </div>
               <div className='state__add'>
                 <label>
@@ -72,8 +77,8 @@ export default class EditForm extends Component {
               </div>  
             </div>
             
-            <Children />
-        </form>
+            <Children childArray={node.children}/>
+        
       </div>
     )
   }

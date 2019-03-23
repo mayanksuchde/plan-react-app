@@ -4,22 +4,9 @@
   flex-direction: row
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
+
 
 
 
@@ -63,61 +50,63 @@
         }
     }
 
-    .state{
-      width: 100%;
-      &__headers{
-        display: flex;
-        flex-direction: row;
-        h5{
-          width: 100%;
-        }
-      }
-      &__list{
-        display: flex;
-        flex-direction: row;
-      }
-      &__add{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        label{
-          width: 45%;
-        }
-        button{
-          margin-top: 30px;
-          height:30px;
-        }
-      }
-    }
-    .props{
-      width: 100%;
-      &__headers{
-        display: flex;
-        flex-direction: row;
-        h5{
-          width: 100%;
-        }
-      }
-      &__list{
-        display: flex;
-        flex-direction: row;
-      }
-      &__add{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        label{
-          width: 45%;
-        }
-        button{
-          margin-top: 30px;
-          height:30px;
-        }
-      }
-    }
     
-
+    
   }
+      .state{
+        width: 100%;
+        &__headers{
+          display: flex;
+          flex-direction: row;
+          h5{
+            width: 100%;
+          }
+        }
+        &__list{
+          display: flex;
+          flex-direction: row;
+        }
+        &__add{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          label{
+            width: 45%;
+          }
+          button{
+            margin-top: 30px;
+            height:30px;
+            font-size: 30px;
+          }
+        }
+      }
+      .props{
+        width: 100%;
+        &__headers{
+          display: flex;
+          flex-direction: row;
+          h5{
+            width: 100%;
+          }
+        }
+        &__list{
+          display: flex;
+          flex-direction: row;
+        }
+        &__add{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          label{
+            width: 45%;
+          }
+          button{
+            margin-top: 30px;
+            height:30px;
+            font-size: 30px;
+          }
+        }
+      }
 }
 
 .node{
