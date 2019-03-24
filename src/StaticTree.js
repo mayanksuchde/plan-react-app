@@ -2,16 +2,10 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import Node from './Node';
 export default class StaticTree extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            
-        }
-
-    }
+    
 
     openPopup(){
-        console.log('whoasodaosdoasd')
+        
       
     }
    

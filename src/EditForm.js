@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Children from './Children';
+import ObjectContainer from './ObjectContainer';
 import uuid from 'uuid';
 
 export default class EditForm extends Component {
@@ -11,13 +12,7 @@ export default class EditForm extends Component {
     this.formref= React.createRef();
   }
  
-  generateState=(data)=>{
-    let arr=[]
-    for(let i in data.state){
-      arr.push(<li key={uuid()}><span>{i}</span>:<span>{data.state[i]}</span></li>)
-    }
-    return arr
-  }
+  
   componentDidMount=()=>{
     
   }
@@ -26,7 +21,7 @@ export default class EditForm extends Component {
     
   }
   render() {
-    let {node,nameEdit,handleNameChange,handleNameSubmit}= this.props;
+    let {node,nameEdit,handleNameChange,handleNameSubmit,addState,addProps,deleteProps,deleteState}= this.props;
     
     return (
       <div className='edit-form'>
@@ -37,44 +32,18 @@ export default class EditForm extends Component {
           <input type="Submit" value="Save" />
         </form>
             <div className="state">
-              <h4>State</h4>
-              <div className="state__headers">
-                <h5>Name:</h5>
-                <h5>Data Type:</h5>
-              </div>
-              <div className="state__list">
-                <ul>
-                  {this.generateState(node)}
-                </ul>
-              </div>
-              <div className='state__add'>
-                <label>
-                    <input type='text' name="name"/>
-                </label>
-                <label>
-                    <input type='text' name="datatype"/>
-                </label>  
-                <button> + </button>
-              </div>  
+              <ObjectContainer header="State"
+                               data={node.state} 
+                               addData={addState} 
+                               generateObjList={this.generateObjList}
+                               deleteData={deleteState} /> 
             </div>
             <div className="props">
-              <h4>Props</h4>
-              <div className="props__headers">
-                <h5>Name:</h5>
-                <h5>Data Type:</h5>
-              </div>
-              <div className="props__list">
-              
-              </div>
-              <div className='props__add'>
-                <label>
-                    <input type='text' name="name"/>
-                </label>
-                <label>
-                    <input type='text' name="datatype"/>
-                </label>  
-                <button> + </button>
-              </div>  
+              <ObjectContainer header="Props" 
+                               data={node.props} 
+                               addData={addProps} 
+                               generateObjList={this.generateObjList}
+                               deleteData={deleteProps} /> 
             </div>
             
             <Children childArray={node.children}/>

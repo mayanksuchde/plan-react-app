@@ -7,19 +7,19 @@ import StaticTree from './StaticTree';
 import EditForm from './EditForm';
 import CirclePack from "./CirclePack";
 
-const  changeNode = (node, id,str) => {
-    if(node.id === id) {
-      node.name=str
-      return node;
-    }
-    if(node.children) {
-      node.children.map(chNode => {
-        return changeNode(chNode, id,str);
-      });
-    }
+// const  changeNode = (node, id,str) => {
+//     if(node.id === id) {
+//       node.name=str
+//       return node;
+//     }
+//     if(node.children) {
+//       node.children.map(chNode => {
+//         return changeNode(chNode, id,str);
+//       });
+//     }
   
-    return node;
-  }
+//     return node;
+//   }
 
 class App extends Component {
   constructor(props){
@@ -48,19 +48,83 @@ class App extends Component {
       nameEdit:e.target.value
     })
   }
+  addState=(e)=>{
+    e.preventDefault();
+    const {root,currentNode}=this.state;
+    let name=e.target.name.value;
+    let type=e.target.type.value;
+    let newroot=Object.assign(root);
+    newroot.each(n=>{
+      if(n.data.id===currentNode.id){
+        n.data.state[name]=type;
+      }
+      }
+    )
+    this.setState({
+      root:newroot
+    })
+    e.target.name.value=""
+    e.target.type.value=""
+  }
+  addProps=(e)=>{
+    e.preventDefault();
+    const {root,currentNode}=this.state;
+    let name=e.target.name.value;
+    let type=e.target.type.value;
+    let newroot=Object.assign(root);
+    newroot.each(n=>{
+      if(n.data.id===currentNode.id){
+        n.data.props[name]=type;
+      }
+      }
+    )
+    this.setState({
+      root:newroot
+    })
+    e.target.name.value=""
+    e.target.type.value=""
 
+  }
+  deleteState=(key)=>{
+    const {root, currentNode } = this.state;
+    let newroot=Object.assign(root);
+    newroot.each(n=>{
+      if(n.data.id===currentNode.id){
+        delete n.data.state[key]
+      }
+    });
+    this.setState({
+      root:newroot
+    });
+  }
+  deleteProps=(key)=>{
+    const {root, currentNode } = this.state;
+    let newroot=Object.assign(root);
+    newroot.each(n=>{
+      if(n.data.id===currentNode.id){
+        delete n.data.props[key]
+      }
+    });
+    this.setState({
+      root:newroot
+    });
+  }
  
   handleNameSubmit=(e)=>{
     e.preventDefault();
     this.setState({
       nameEdit:e.target.name.value
     })
-    const { currentNode, nameEdit } = this.state;
+    const {root, currentNode, nameEdit } = this.state;
     
-    let newdata=changeNode(data,currentNode.id,nameEdit);
-    
+    let newroot=Object.assign(root);
+    newroot.each((n)=>{
+      if(n.data.id===currentNode.id){
+        n.data.name=nameEdit;
+      }
+    });
     this.setState({
-      root:d3.hierarchy(newdata)  
+      root:newroot 
     })
   }
   componentDidMount=()=>{
@@ -75,7 +139,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <EditForm node={this.state.currentNode} nameEdit={this.state.nameEdit} handleNameChange={this.handleNameChange} handleNameSubmit={this.handleNameSubmit} />
+        <EditForm node={this.state.currentNode} 
+                  nameEdit={this.state.nameEdit}
+                  handleNameChange={this.handleNameChange} 
+                  handleNameSubmit={this.handleNameSubmit} 
+                  addState={this.addState}
+                  addProps={this.addProps}
+                  deleteState={this.deleteState}
+                  deleteProps={this.deleteProps}
+                   />
         <Switch>
           <Route path="/tree" render={(props)=><StaticTree {...props} data={this.state.root} getNode={this.getNode}/>} />
           <Route path='/circle' render={(props)=><CirclePack {...props} data={this.state.root} getNode={this.getNode}/> } /> 
