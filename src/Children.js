@@ -1,16 +1,21 @@
 import React, { Component } from 'react'
-
+import Child from './Child';
 export default class Children extends Component {
   render() {
-    var {childArray}=this.props
+    var {childrenArr,addChild,deleteChild}=this.props
     return (
       <div>
         <h4>Children</h4>
-        {childArray.map((child,i)=>
-            <div key={i}>
-              <h5>{child.name}</h5>
-            </div>
+        {childrenArr.map((child,i)=>
+            <Child data={child} key={child.id} deleteChild={deleteChild} />
           )}
+        
+      <form onSubmit={addChild}>
+        <label htmlFor="name">
+          <input type="text" name="name" id="child-name"/>
+        </label>
+        <input type="submit" value="Add Child"/>
+      </form>
       </div>
     )
   }

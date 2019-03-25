@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 import {BrowserRouter as Router,Switch,Route,Redirect } from 'react-router-dom';
+import uuid from 'uuid';
 import './App.scss';
 import data from './data.json';
 import StaticTree from './StaticTree';
 import EditForm from './EditForm';
 import CirclePack from "./CirclePack";
-
+const nanoid=require('nanoid');
 // const  changeNode = (node, id,str) => {
 //     if(node.id === id) {
 //       node.name=str
@@ -29,7 +30,8 @@ class App extends Component {
       currentNode:{
         state:{},
         props:{},
-        children:[]
+        children:[],
+        id:""
       },
       nameEdit:"",
       
@@ -127,6 +129,64 @@ class App extends Component {
       root:newroot 
     })
   }
+  addChild=(e)=>{
+    e.preventDefault();
+    const { currentNode } = this.state;
+    
+    let name=e.target.name.value;
+    let newChild={
+      name:name,
+      id:nanoid(),
+      children:[],
+      state:{},
+      props:{}
+    }
+   const changeNode = (node, id,obj) => {
+          if(node.id === id) {
+            node.children.push(obj)
+            return node;
+          }
+          if(node.children) {
+            node.children.map(chNode => {
+              return changeNode(chNode, id,obj);
+            });
+          }
+        
+          return node;
+        }
+    let newData=changeNode(data,currentNode.id,newChild);
+   
+    this.setState({
+      root:d3.hierarchy(newData)
+    })
+     
+  }
+  deleteChild=(id)=>{
+    const { currentNode } = this.state;
+    
+    let newChildren=currentNode.children.filter((child)=>{
+      return child.id!==id;
+    });
+    const changeNode = (node, id,obj) => {
+      if(node.id === id) {
+        node.children=newChildren
+        return node;
+      }
+      if(node.children) {
+        node.children.map(chNode => {
+          return changeNode(chNode, id,obj);
+        });
+      }
+    
+      return node;
+    }
+    let newData=changeNode(data,currentNode.id,currentNode);
+
+    this.setState({
+      root:d3.hierarchy(newData)
+    })
+  }
+
   componentDidMount=()=>{
     
 
@@ -147,9 +207,14 @@ class App extends Component {
                   addProps={this.addProps}
                   deleteState={this.deleteState}
                   deleteProps={this.deleteProps}
+                  addChild={this.addChild}
+                  deleteChild={this.deleteChild}
                    />
         <Switch>
-          <Route path="/tree" render={(props)=><StaticTree {...props} data={this.state.root} getNode={this.getNode}/>} />
+          <Route path="/tree" render={(props)=><StaticTree {...props} 
+                                                  data={this.state.root} 
+                                                  getNode={this.getNode}/>} 
+                                                  currentNode={this.state.currentNode} />
           <Route path='/circle' render={(props)=><CirclePack {...props} data={this.state.root} getNode={this.getNode}/> } /> 
           <Redirect to='/tree' />
         </Switch>

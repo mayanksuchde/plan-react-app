@@ -11,11 +11,7 @@ export default class StaticTree extends Component {
    
 
     componentDidMount=()=>{
-        d3.select('g.nodes')
-            .selectAll('g.node')
-            .data(this.props.data.descendants())
-            .enter()
-            .append("g.node")
+        
 
         d3.select('g.links')
         .selectAll('path')
@@ -24,8 +20,31 @@ export default class StaticTree extends Component {
             .attr('d',d3.linkVertical()
                 .x(d=>d.x)
                 .y(d=>d.y));
+        
+                d3.select('g.nodes')
+                .selectAll('g.node')
+                .data(this.props.data.descendants())
+                .enter()
+                .append("g.node")
             
             
+    }
+    componentDidUpdate=(prevProps)=>{
+      if(this.props.data!==prevProps.data){
+        d3.select('g.links')
+        .selectAll('path')
+        .data(this.props.data.links())
+            .join("path")
+            .attr('d',d3.linkVertical()
+                .x(d=>d.x)
+                .y(d=>d.y));
+      
+        d3.select('g.nodes')
+          .selectAll('g.node')
+          .data(this.props.data.descendants())
+          .enter()
+          .append("g.node")
+      }
     }
   
        
