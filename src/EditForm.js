@@ -21,7 +21,7 @@ export default class EditForm extends Component {
     
   }
   render() {
-    let {node,nameEdit,handleNameChange,handleNameSubmit,addState,addProps,deleteProps,deleteState,addChild,deleteChild}= this.props;
+    let {node,nameEdit,handleNameChange,handleNameSubmit,addState,addProps,deleteProps,deleteState,addChild,copyChild,deleteChild}= this.props;
     
     return (
       <div className='edit-form'>
@@ -45,9 +45,8 @@ export default class EditForm extends Component {
                                generateObjList={this.generateObjList}
                                deleteData={deleteProps} /> 
             </div>
-            
-            <Children childrenArr={node.children} addChild={addChild} deleteChild={deleteChild}  />
-        
+
+            <Children childrenArr={node.children} addChild={addChild} deleteChild={deleteChild} copyChild={copyChild}  />
       </div>
     )
   }

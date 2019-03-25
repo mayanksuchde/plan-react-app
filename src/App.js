@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
-import {BrowserRouter as Router,Switch,Route,Redirect } from 'react-router-dom';
-import uuid from 'uuid';
+import {Switch,Route,Redirect } from 'react-router-dom';
 import './App.scss';
 import data from './data.json';
 import StaticTree from './StaticTree';
@@ -161,6 +160,32 @@ class App extends Component {
     })
      
   }
+
+
+  copyChild=(obj)=>{
+    const { currentNode } = this.state;
+    const changeNode = (node, id,obj) => {
+      if(node.id === id) {
+        obj.id=nanoid(10)
+        node.children.push(obj)
+        return node;
+      }
+      if(node.children) {
+        node.children.map(chNode => {
+          return changeNode(chNode, id,obj);
+        });
+      }
+    
+      return node;
+    }
+    let newData=changeNode(data,currentNode.id,obj);
+
+    this.setState({
+      root:d3.hierarchy(newData)
+    })
+  }
+
+
   deleteChild=(id)=>{
     const { currentNode } = this.state;
     
@@ -209,6 +234,7 @@ class App extends Component {
                   deleteProps={this.deleteProps}
                   addChild={this.addChild}
                   deleteChild={this.deleteChild}
+                  copyChild={this.copyChild}
                    />
         <Switch>
           <Route path="/tree" render={(props)=><StaticTree {...props} 
