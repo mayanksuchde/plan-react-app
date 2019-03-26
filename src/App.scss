@@ -21,25 +21,41 @@
   }
 }
 
-.edit-form{
-  width:450px;
-
+.form{
+  width:400px;
+  background-color:#43425D;
+  color:white;
+  &__name{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:34px;
+    input[type=text]{
+      width: 85%;
+      color: white;
+      border:none;
+      font-size: 32px;
+      height: 38px;
+      box-shadow: none;
+      background: none;
+      border-bottom: solid 3px #A3A0FB;
+      &:focus{
+        border:solid 3px #A3A0FB;
+      }
+    }
+    button{
+      background: none;
+      border:none;
+    }
+  }
   form{
-    margin-left: 48px;
+    margin-left: 24px;
+    margin-right: 24px;
     display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    fieldset{
-      width: 98%;
-        .fieldset-div{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-          
-        }
-    }
+    
 
     label{
       margin-top:40px;
@@ -53,40 +69,54 @@
     
     
   }
-      .state{
-        width: 100%;
-        &__headers{
-          display: flex;
-          flex-direction: row;
-          h5{
-            width: 100%;
-          }
-        }
-        &__list{
-          display: flex;
-          flex-direction: row;
-        }
-        &__add{
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          label{
-            width: 45%;
-          }
-          input[type="submit"]{
-            margin-top: 25px;
-            height:30px;
-            font-size: 25px;
-          }
-        }
-      }
-    
-    .child{
+  .container{
+    width: 100%;
+    &__headers{
+      width:85%;
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-left: 28px;
+      
+      h4{
+        line-height: 0px;
+        width: 100%;
+        font-weight: 300;
+        font-size:25px; 
+        text-align: left;
+        margin: 34px 0 12px 0 ;
+      }
+      h5{
+        line-height: 0px;
+
+        margin-right: 116px;
+      }
     }
+    &__list{
+      display: flex;
+      flex-direction: row;
+    }
+    &__add{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      label{
+        width: 45%;
+      }
+      input[type="submit"]{
+        margin-top: 25px;
+        height:30px;
+        font-size: 25px;
+      }
+    }
+  }
+    
+  .child{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;    
+  }
       
 }
 

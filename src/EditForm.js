@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Children from './Children';
 import ObjectContainer from './ObjectContainer';
-import uuid from 'uuid';
 
 export default class EditForm extends Component {
   constructor(props){
@@ -24,12 +23,10 @@ export default class EditForm extends Component {
     let {node,nameEdit,handleNameChange,handleNameSubmit,addState,addProps,deleteProps,deleteState,addChild,copyChild,deleteChild}= this.props;
     
     return (
-      <div className='edit-form'>
-        <form onSubmit={handleNameSubmit}>
-          <label htmlFor="name"> Component name:
-              <input type='text' name="name" value={nameEdit} onChange={handleNameChange} />
-          </label>
-          <input type="Submit" value="Save" />
+      <div className='form'>
+        <form className='form__name' onSubmit={handleNameSubmit}>
+          <input type='text' name="name" value={nameEdit} onChange={handleNameChange} />
+          <button type="Submit"><img src="/Icon-1.svg" alt=""/></button>
         </form>
             <div className="state">
               <ObjectContainer header="State"

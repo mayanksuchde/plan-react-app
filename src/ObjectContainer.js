@@ -16,12 +16,12 @@ export default class ObjectContainer extends Component{
       // const objArray=this.generateArr(data);
       // console.log(objArray);
       return (<div>
-                <h4>{header}</h4>
-                  <div className="state__headers">
+                  <div className="container__headers">
+                    <h4>{header}</h4>
                     <h5>Name:</h5>
                     <h5>Data Type:</h5>
                   </div>
-                  <div className="state__list">
+                  <div className="container__list">
                     <ul>
                      {Object.keys(data).map((key,i)=>
                         <li key={i}>
@@ -32,7 +32,7 @@ export default class ObjectContainer extends Component{
                      )}
                     </ul>
                   </div>
-                    <form className='state__add' onSubmit={addData}>
+                    <form className='container__add' onSubmit={addData}>
                       <label htmlFor='name'>
                           <input type='text' name="name"/>
                       </label>
