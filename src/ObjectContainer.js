@@ -1,5 +1,6 @@
 import React,{Component } from 'react';
-
+import SingleObj from './SingleObj';
+const nanoid=require('nanoid');
 
 export default class ObjectContainer extends Component{  
     // generateArr=(obj)=>{
@@ -12,7 +13,7 @@ export default class ObjectContainer extends Component{
     //   return arr;
     // }  
     render(){
-      const {header,data,addData,deleteData}=this.props;
+      const {header,data,addData,deleteData,onDragStart}=this.props;
       // const objArray=this.generateArr(data);
       // console.log(objArray);
       return (<div>
@@ -21,17 +22,14 @@ export default class ObjectContainer extends Component{
                     <h5>Name:</h5>
                     <h5>Data Type:</h5>
                   </div>
-                  <div className="container__list">
-                    <ul>
-                     {Object.keys(data).map((key,i)=>
-                        <li key={i}>
-                          <span>{key}</span>:
-                          <span>{data[key]}</span>
-                          <button className="delete" onClick={()=>deleteData(key)}>X</button>
-                        </li>
-                     )}
-                    </ul>
-                  </div>
+                  
+                      <div className="container__list">
+                      {Object.keys(data).map((key,i)=>
+                        <SingleObj key={i} index={i} type={data[key]} name={key} deleteData={deleteData} onDragStart={onDragStart} />
+                        )}
+                    </div>
+                    
+          
                     <form className='container__add' onSubmit={addData}>
                       <label htmlFor='name'>
                           <input type='text' name="name"/>

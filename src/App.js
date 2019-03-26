@@ -184,6 +184,39 @@ class App extends Component {
       root:d3.hierarchy(newData)
     })
   }
+  onDragStart=(e,obj)=>{
+    e.dataTransfer.setData("name",obj.name);
+    e.dataTransfer.setData("type",obj.type);
+   
+  }
+  onDragOver=(e)=>{
+    e.preventDefault();
+  }
+  onDrop=(e,id)=>{
+    e.preventDefault();
+    let name=e.dataTransfer.getData("name");
+    let type=e.dataTransfer.getData("type")
+    const changeNode = (node, id,name,type) => {
+      if(node.id === id) {
+        node.props[name]=type;
+        return node;
+      }
+      if(node.children) {
+        node.children.map(chNode => {
+          return changeNode(chNode, id,name,type);
+        });
+      }
+    
+      return node;
+    }
+    let newData=changeNode(data,id,name,type);
+
+    this.setState({
+      root:d3.hierarchy(newData)
+    })
+    
+    
+  }
 
 
   deleteChild=(id)=>{
@@ -235,6 +268,9 @@ class App extends Component {
                   addChild={this.addChild}
                   deleteChild={this.deleteChild}
                   copyChild={this.copyChild}
+                  onDragOver={this.onDragOver}
+                  onDragStart={this.onDragStart}
+                  onDrop={this.onDrop}
                    />
         <Switch>
           <Route path="/tree" render={(props)=><StaticTree {...props} 

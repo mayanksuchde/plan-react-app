@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 
 export default class Child extends Component {
     render() {
-    const {data,deleteChild,copyChild}=this.props
+    const {data,deleteChild,copyChild,onDragOver,onDrop}=this.props
     return (
-      <div className='child'>
+      <div className='child' onDragOver={(e)=>onDragOver(e)}  onDrop={e=>onDrop(e,data.id)} >
         <div className="child__name" >{
             <h5>{data.name}</h5>
         }</div>

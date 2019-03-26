@@ -94,7 +94,33 @@
     }
     &__list{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin:0 24px;
+      &__obj{
+        width: 100%;
+        display: flex;
+        background-color:#A3A0FB ;
+        flex-direction: row;
+        justify-content: space-evenly;
+        height:42px;
+        h6{
+          font-size: 15px;
+          margin:0;
+
+        }
+        span{
+          
+        }
+        button{
+          width: 38px;
+          height: 38px;
+          background: none;
+          border:none;
+          box-shadow: none;
+        }
+      }
     }
     &__add{
       display: flex;
