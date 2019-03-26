@@ -10,7 +10,7 @@ export default class Children extends Component {
             <Child data={child} key={child.id} deleteChild={deleteChild} copyChild={copyChild} onDragOver={onDragOver} onDrop={onDrop} />
           )}
         
-      <form onSubmit={addChild}>
+      <form className='add_child' onSubmit={addChild}>
         <label htmlFor="name">
           <input type="text" name="name" id="child-name"/>
         </label>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 import Node from './Node';
+
 export default class StaticTree extends Component {
     
 
@@ -57,7 +58,7 @@ export default class StaticTree extends Component {
     
     return (
       <div className='artboard'>
-        <h1>Project Untitled</h1>
+        <h1>Project</h1>
         <svg width="100%" height="1000" >
             <g className='nodes' transform="translate(0,15)">{
                 myTree.descendants().map((d,i)=>

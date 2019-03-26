@@ -101,6 +101,7 @@
       &__obj{
         width: 100%;
         display: flex;
+        margin:2px 0;
         background-color:#A3A0FB ;
         flex-direction: row;
         justify-content: space-evenly;
@@ -141,7 +142,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;    
+    justify-content: space-around;  
+  }
+  .add_child{
+    input[type=submit]{
+      margin-left: 16px;
+      margin-top: 39px;
+    }
   }
       
 }
@@ -153,5 +160,17 @@
   }
   &__text{
     transform: translate(-3%,0);
+  }
+}
+
+
+.circle{
+  svg{
+
+    margin-left: 400px;
+  }
+  g{
+    height:1000px;
+    width: 1000px;
   }
 }
