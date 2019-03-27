@@ -21,11 +21,16 @@ $white:#EDF5E1;
 
 
 .artboard{
-
-  width: 1040px;
+  background-color: $fadegreen;
+  width: 100%;
+  margin:auto;
+  color:$darkblue;
+  svg{
+    margin-left: 60px;
+  }
   .links{
     fill:none;
-    stroke:#555;
+    stroke:$darkblue;
     stroke-width: 1.5px;
   }
 }
@@ -35,11 +40,10 @@ $white:#EDF5E1;
   background-color:$darkblue;
   color:$white;
   &__name{
-    display:flex;
+
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-top:34px;
+  
+    margin:34px 24px 0;
     input[type=text]{
       width: 85%;
       color: $white;
@@ -48,9 +52,9 @@ $white:#EDF5E1;
       height: 38px;
       box-shadow: none;
       background: none;
-      border-bottom: solid 3px $fadegreen;
+      border-bottom: solid 1px $fadegreen;
       &:focus{
-        border:solid 3px #fadegreen;
+        border:solid 1px $fadegreen;
       }
     }
     button{
@@ -70,9 +74,7 @@ $white:#EDF5E1;
       margin-top:40px;
       display: flex;
       flex-direction: column;
-        input{
-          border:solid 1px deepskyblue;
-        }
+        
     }
 
     
@@ -137,7 +139,8 @@ $white:#EDF5E1;
         }
         button{
           width: 38px;
-          height: 38px;
+          height: 42px;
+          margin-bottom: 10px;
           background: none;
           border:none;
           box-shadow: none;
@@ -152,9 +155,30 @@ $white:#EDF5E1;
       label{
         width: 45%;
       }
-      input[type="submit"]{
+      input{
+        background-color: $darkblue;
+        color: $green;
+        margin-right:8px;
+        font-size: 16px;
+        border:none;
+        border-bottom: solid 1px $fadegreen;
+        outline: none;
+      }
+      select{
+        background-color: $green;
+        outline: none;
+        color: $darkblue;
+        height: 25px;
+        border: none;
+        border-radius: 18px;
+        font-family: "AvenirNext"
+      }
+      button{
         margin-top: 25px;
-        height:30px;
+        height: 50px;
+        width: 50px;
+        background: none;
+        border: none;
         font-size: 25px;
       }
     }
@@ -165,14 +189,43 @@ $white:#EDF5E1;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;  
+    background-color: $green;
+    margin:10px 12px;
+    border-radius: 10px;
+    &__name{
+      color:$darkblue;
+      font-size: 30px;
+      line-height: 0px;
+      margin:none;
+    }
+    &__copy{
+      width:48px;
+      height:48px;
+    }
   }
   .add_child{
-    input[type=submit]{
-      margin-left: 16px;
-      margin-top: 39px;
+    width: 100%;
+    input[type=text]{
+      background: none;
+      background-color: $darkblue;
+      border:none;
+      border-bottom: solid 1px $fadegreen;
+      width: 300px;
+      outline: none;
+      font-size: 20px;
+      color: $green;
+    }
+    button{
+      width: 50px;
+      height: 50px;
+      margin-top: 20px;
+      background:$darkblue;
+      border: none;
+      
     }
   }
       
+
 }
 
 .node{
@@ -182,17 +235,6 @@ $white:#EDF5E1;
   }
   &__text{
     transform: translate(-3%,0);
+    }
   }
-}
 
-
-.circle{
-  svg{
-
-    margin-left: 400px;
-  }
-  g{
-    height:1000px;
-    width: 1000px;
-  }
-}

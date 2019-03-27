@@ -32,10 +32,10 @@ export default class ObjectContainer extends Component{
           
                     <form className='container__add' onSubmit={addData}>
                       <label htmlFor='name'>
-                          <input type='text' name="name"/>
+                          <input type='text' name="name" placeholder="Add Data"/>
                       </label>
                       <label htmlFor='type'>
-                        <select name='type'>
+                        <select name='type' placeholder="Type">
                           <option value="Number">Number</option>
                           <option value="String">String</option>
                           <option value="Array">Array</option>
@@ -43,7 +43,7 @@ export default class ObjectContainer extends Component{
                           <option value="Function">Function</option>
                         </select>
                       </label>
-                      <input type="submit" value="+"/> 
+                      <button type="submit"><img src="/plus.svg" alt=""/></button>
                     </form>
                   </div>)
 

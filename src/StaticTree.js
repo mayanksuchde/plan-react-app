@@ -5,14 +5,15 @@ import Node from './Node';
 export default class StaticTree extends Component {
     
 
-    openPopup(){
-        
-      
-    }
    
 
     componentDidMount=()=>{
-        
+      
+        d3.select('g.nodes')
+        .selectAll('g.node')
+        .data(this.props.data.descendants())
+        .enter()
+        .append("g.node")
 
         d3.select('g.links')
         .selectAll('path')
@@ -21,24 +22,20 @@ export default class StaticTree extends Component {
             .attr('d',d3.linkVertical()
                 .x(d=>d.x)
                 .y(d=>d.y));
-        
-                d3.select('g.nodes')
-                .selectAll('g.node')
-                .data(this.props.data.descendants())
-                .enter()
-                .append("g.node")
             
             
     }
     componentDidUpdate=(prevProps)=>{
       if(this.props.data!==prevProps.data){
+      
+
         d3.select('g.links')
-        .selectAll('path')
-        .data(this.props.data.links())
-            .join("path")
-            .attr('d',d3.linkVertical()
-                .x(d=>d.x)
-                .y(d=>d.y));
+          .selectAll('path')
+          .data(this.props.data.links())
+              .join("path")
+              .attr('d',d3.linkVertical()
+                  .x(d=>d.x)
+                  .y(d=>d.y));
       
         d3.select('g.nodes')
           .selectAll('g.node')
@@ -59,7 +56,7 @@ export default class StaticTree extends Component {
     return (
       <div className='artboard'>
         <h1>Project</h1>
-        <svg width="100%" height="1000" >
+        <svg width="1000" height="1000" >
             <g className='nodes' transform="translate(0,15)">{
                 myTree.descendants().map((d,i)=>
                         <Node d={d} key={i} onClick={this.openPopup} getNode={this.props.getNode} />

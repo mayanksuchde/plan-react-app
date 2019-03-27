@@ -19,7 +19,7 @@ export default class SingleObj extends Component {
                     <span>{type}</span> 
                 </div>
                 <button className="delete" onClick={()=>deleteData(name)}>
-                  <img src="/Icon.svg" alt="delete"/>
+                  <img src="/bin.svg" alt="delete"/>
                 </button>
               </div>
     )

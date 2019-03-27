@@ -18,13 +18,14 @@ export default class EditForm extends Component {
     return (
       <div className='form'>
         <form className='form__name' onSubmit={handleNameSubmit}>
-          <input type='text' name="name" value={nameEdit} onChange={handleNameChange} />
+          <input type='text' name="name" value={nameEdit} onChange={handleNameChange} placeholder="Name"/>
           <button type="Submit"><img src="/Icon-1.svg" alt="update"/></button>
         </form>
           
             <div className="state">
               <ObjectContainer header="State"
                                data={node.state} 
+                               className="container"
                                addData={addState} 
                                generateObjList={this.generateObjList}
                                deleteData={deleteState}
@@ -34,6 +35,7 @@ export default class EditForm extends Component {
               <ObjectContainer header="Props" 
                                data={node.props} 
                                addData={addProps} 
+                               className="container"
                                generateObjList={this.generateObjList}
                                deleteData={deleteProps}
                                onDragStart={onDragStart} /> 

@@ -14,7 +14,7 @@ export default class Children extends Component {
         <label htmlFor="name">
           <input type="text" name="name" id="child-name"/>
         </label>
-        <input type="submit" value="Add Child"/>
+        <button type="submit"><img src="/plus.svg" alt=""/></button>
       </form>
       </div>
     )

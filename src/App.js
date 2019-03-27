@@ -7,6 +7,9 @@ import StaticTree from './StaticTree';
 import EditForm from './EditForm';
 import CirclePack from "./CirclePack";
 const nanoid=require('nanoid');
+// var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storageObj));
+
+
 // const  changeNode = (node, id,str) => {
 //     if(node.id === id) {
 //       node.name=str
@@ -158,7 +161,7 @@ class App extends Component {
     this.setState({
       root:d3.hierarchy(newData)
     })
-     
+    e.target.name.value='';
   }
 
 
@@ -249,8 +252,8 @@ class App extends Component {
     
 
   }
-  componentDidUpdate=()=>{
-
+  componentDidUpdate=(prevState)=>{
+    
   } 
 
 
