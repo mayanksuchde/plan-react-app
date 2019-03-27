@@ -10,6 +10,7 @@ $white:#EDF5E1;
   display: flex;
   flex-direction: row;
   color:$white;
+
   font-family:'AvenirNext' ;
 }
 
@@ -21,9 +22,9 @@ $white:#EDF5E1;
 
 
 .artboard{
-  background-color: $fadegreen;
+  
   width: 100%;
-  margin:auto;
+  margin:0 auto;
   color:$darkblue;
   svg{
     margin-left: 60px;
@@ -226,6 +227,11 @@ $white:#EDF5E1;
   }
       
 
+}
+.download{
+  position: fixed;
+  bottom:48px;
+  right:48px;
 }
 
 .node{

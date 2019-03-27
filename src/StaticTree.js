@@ -52,7 +52,7 @@ export default class StaticTree extends Component {
 
     const myTree=d3.tree().size([1000,900])(this.props.data);
    
-    
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.props.data.data))
     return (
       <div className='artboard'>
         <h1>Project</h1>
@@ -66,6 +66,7 @@ export default class StaticTree extends Component {
                 
             </g>
         </svg>
+        <a className='download' href={dataStr} download='download.json' ><img src="/download.svg" alt=""/></a>
       </div>
     )
   }

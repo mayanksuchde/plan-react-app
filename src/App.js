@@ -2,27 +2,13 @@ import React, { Component } from 'react';
 import * as d3 from 'd3';
 import {Switch,Route,Redirect } from 'react-router-dom';
 import './App.scss';
-import data from './data.json';
+import data from './download.json';
+
 import StaticTree from './StaticTree';
 import EditForm from './EditForm';
 import CirclePack from "./CirclePack";
 const nanoid=require('nanoid');
-// var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storageObj));
 
-
-// const  changeNode = (node, id,str) => {
-//     if(node.id === id) {
-//       node.name=str
-//       return node;
-//     }
-//     if(node.children) {
-//       node.children.map(chNode => {
-//         return changeNode(chNode, id,str);
-//       });
-//     }
-  
-//     return node;
-//   }
 
 class App extends Component {
   constructor(props){

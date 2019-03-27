@@ -1,0 +1,141 @@
+{
+    "id": "4562",
+    "name": "Router",
+    "state": {},
+    "props": {
+        "routerProps": "Object"
+    },
+    "children": [
+        {
+            "name": "App",
+            "id": "0ecL6Ma0sM2DEifl0fMAn",
+            "children": [
+                {
+                    "name": "Editor",
+                    "id": "svF3w0IkjSLaRU07kG6kn",
+                    "children": [
+                        {
+                            "name": "Name",
+                            "id": "AjqeqEeH6gLDqo70ZKDaj",
+                            "children": [],
+                            "state": {},
+                            "props": {}
+                        },
+                        {
+                            "name": "Objects",
+                            "id": "a7klVEdZik8XNNbAmAB77",
+                            "children": [
+                                {
+                                    "name": "State",
+                                    "id": "KNwAL_YSt62nhLBzUEEVQ",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {}
+                                },
+                                {
+                                    "name": "Props",
+                                    "id": "GSdpMcHrWugo62YVUnCKL",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {}
+                                }
+                            ],
+                            "state": {},
+                            "props": {}
+                        },
+                        {
+                            "name": "Children",
+                            "id": "tGmktKwze_YgzlIUGvKu_",
+                            "children": [
+                                {
+                                    "name": "Child",
+                                    "id": "PTINOx_OkqETGLFIjRfy5",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {}
+                                },
+                                {
+                                    "name": "Child",
+                                    "id": "YPv30K8OBraNb7Yn1uRDz",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {}
+                                },
+                                {
+                                    "name": "Child",
+                                    "id": "RWXt10PbCG9KWntQ04Olx",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {}
+                                }
+                            ],
+                            "state": {},
+                            "props": {}
+                        }
+                    ],
+                    "state": {},
+                    "props": {
+                        "handleName()": "Function",
+                        "changeNode()": "Function",
+                        "addChild()": "Function",
+                        "getNodes()": "Function",
+                        "selectedNode": "Object"
+                    }
+                },
+                {
+                    "name": "Artboard",
+                    "id": "1D6NjM28a3fpkxTx1s8CJ",
+                    "children": [
+                        {
+                            "name": "Tree",
+                            "id": "nlXNj8s1QWDUPzv-8H0gd",
+                            "children": [
+                                {
+                                    "name": "Nodes",
+                                    "id": "3VZihUxQGyyVyKSGdTQSK",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {
+                                        "root": "Object"
+                                    }
+                                },
+                                {
+                                    "name": "Links",
+                                    "id": "AK61avlZR6xsi0Niv-75x",
+                                    "children": [],
+                                    "state": {},
+                                    "props": {
+                                        "root": "Object"
+                                    }
+                                }
+                            ],
+                            "state": {},
+                            "props": {
+                                "root": "Object"
+                            }
+                        }
+                    ],
+                    "state": {},
+                    "props": {
+                        "root": "Object"
+                    }
+                }
+            ],
+            "state": {
+                "selectedNode": "Object",
+                "root": "Object"
+            },
+            "props": {
+                "routerProps": "Object",
+                "getNodes()": "Function",
+                "addChild()": "Function",
+                "changeNode()": "Function",
+                "handleName()": "Function",
+                "addProps()": "Function",
+                "deleteProps()": "Function",
+                "addState": "Function",
+                "deleteState": "Function"
+            }
+        }
+    ]
+}
