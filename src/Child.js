@@ -10,7 +10,6 @@ export default class Child extends Component {
         }</div>
         <div className="child__copy" onClick={()=>copyChild(Object.assign(data))}>Copy</div>
         <div className="child__delete" onClick={()=>{deleteChild(data.id)}} >X</div>
-        {/* <div className="buttons__edit"></div> if time permits*/}
       </div>
     )
   }

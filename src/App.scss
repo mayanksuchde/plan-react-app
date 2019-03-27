@@ -1,7 +1,16 @@
+@import '/fonts/stylesheet.css';
+$darkblue:#05386B;
+$darkGreen:#379683;
+$fadegreen:#8ee4af;
+$green:#5CDB95;
+$white:#EDF5E1;
+
 .App {
   text-align: center;
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  color:$white;
+  font-family:'AvenirNext' ;
 }
 
 
@@ -23,8 +32,8 @@
 
 .form{
   width:400px;
-  background-color:#43425D;
-  color:white;
+  background-color:$darkblue;
+  color:$white;
   &__name{
     display:flex;
     flex-direction: row;
@@ -33,15 +42,15 @@
     margin-top:34px;
     input[type=text]{
       width: 85%;
-      color: white;
+      color: $white;
       border:none;
       font-size: 32px;
       height: 38px;
       box-shadow: none;
       background: none;
-      border-bottom: solid 3px #A3A0FB;
+      border-bottom: solid 3px $fadegreen;
       &:focus{
-        border:solid 3px #A3A0FB;
+        border:solid 3px #fadegreen;
       }
     }
     button{
@@ -88,8 +97,8 @@
       }
       h5{
         line-height: 0px;
-
-        margin-right: 116px;
+        width:50%;
+        text-align: left;
       }
     }
     &__list{
@@ -98,21 +107,33 @@
       justify-content: center;
       align-items: flex-start;
       margin:0 24px;
-      &__obj{
-        width: 100%;
+      .container__obj{
         display: flex;
-        margin:2px 0;
-        background-color:#A3A0FB ;
         flex-direction: row;
-        justify-content: space-evenly;
-        height:42px;
-        h6{
-          font-size: 15px;
-          margin:0;
-
-        }
-        span{
-          
+        justify-content: space-between;
+        width: 100%;
+        &__content{
+          width: 100%;
+          display: flex;
+          margin:3px 0;
+          background-color:$green ;
+          flex-direction: row;
+          justify-content: flex-start;
+          height:28px;
+          border-radius:12px; 
+          color:$darkblue;
+          h6{
+            width: 50%;
+            line-height: 0.4;
+            font-size: 18px;
+            font-weight: 500;
+            margin:12px 0 0 15px;
+            text-align: left;
+          }
+          span{
+            margin: 1;
+            line-height: 2
+          }
         }
         button{
           width: 38px;
@@ -122,6 +143,7 @@
           box-shadow: none;
         }
       }
+          
     }
     &__add{
       display: flex;

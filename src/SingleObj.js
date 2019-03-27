@@ -11,15 +11,17 @@ export default class SingleObj extends Component {
       }
       
     return (
+              <div className='container__obj'>
                 <div draggable
                     onDragStart={e=>{onDragStart(e,newData)}}
-                     className='container__list__obj'>
+                    className='container__obj__content'>
                     <h6>{name}</h6>
                     <span>{type}</span> 
-                    <button className="delete" onClick={()=>deleteData(name)}>
-                    <img src="/Icon.svg" alt="delete"/>
-                    </button>
                 </div>
+                <button className="delete" onClick={()=>deleteData(name)}>
+                  <img src="/Icon.svg" alt="delete"/>
+                </button>
+              </div>
     )
   }
 }

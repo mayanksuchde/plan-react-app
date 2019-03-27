@@ -1,6 +1,6 @@
 {
     "id":"4562",
-    "name":"app",
+    "name":"App",
     "state":{
         "currentVideo":"Object",
         "videoList":"Array"
